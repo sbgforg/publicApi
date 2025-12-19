@@ -2,13 +2,20 @@ openapi: 3.0.3
 info:
   title: SBGf Public API
   version: 1.0.0
+  description: |
+    Public API providing access to events and other public information
+    from the Brazilian Geophysical Society (SBGf).
 
+servers:
+  - url: https://api.sbgf.org.br/v1
+    description: Production server
+    
 paths:
   /events:
     get:
       summary: List events
       responses:
-        '200':
+        "200":
           description: List of events
 
   /events/{slug}:
@@ -21,7 +28,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Event found
-        '404':
+        "404":
           description: Event not found
